@@ -45,3 +45,5 @@ const PostCreate = () => {
     </div>
   );
 };
+
+export default PostCreate;
