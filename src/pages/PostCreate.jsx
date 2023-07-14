@@ -15,9 +15,6 @@ const PostCreate = () => {
   const handleSubmit = (e) => {
     e.prevent.default();
 
-    console.log("Title: ", title);
-    console.log("Content: ", content);
-
     setTitle("");
     setContent("");
   };
