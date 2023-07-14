@@ -5,7 +5,7 @@ const MainHeader = () => {
   return (
     <div>
       <div className="blog-name">
-        5Star Blog
+        5Star BLOG
       </div>
       <div className="addNewPostBtn">
         <button>새 글 작성</button>
