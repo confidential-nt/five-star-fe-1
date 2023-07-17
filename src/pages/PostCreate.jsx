@@ -3,6 +3,7 @@ import React, { axios, useState } from "react";
 const PostCreate = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -44,16 +45,20 @@ const PostCreate = () => {
     </div>
   );
 
+  // 게시글 post 기능
   async function postData() {
-    try {
-      const response = await axios.post("http://3.38.117.203/posts", {
-        title: { title },
-        content: { content },
-      });
-      console.log(response);
-    } catch (error) {
-      console.error(error);
+    if (!loading) {
+      try {
+        const response = await axios.post("http://3.38.117.203/posts", {
+          title: { title },
+          content: { content },
+        });
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
     }
+    setLoading(false);
   }
 };
 
