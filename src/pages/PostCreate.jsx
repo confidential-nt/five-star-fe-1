@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { axios, useState } from "react";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
@@ -21,7 +21,6 @@ const PostCreate = () => {
 
   return (
     <div className="blog-editor">
-      <h1>Create a New Blog Post</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>
@@ -44,6 +43,18 @@ const PostCreate = () => {
       </form>
     </div>
   );
+
+  async function postData() {
+    try {
+      const response = await axios.post("http://3.38.117.203/posts", {
+        title: { title },
+        content: { content },
+      });
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 };
 
 export default PostCreate;
