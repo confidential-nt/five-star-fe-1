@@ -7,12 +7,9 @@ export default function PostDetail() {
   const { postid } = useParams();
 
   useEffect(() => {
-    fetch("/data/posts.json") // 나중에는 axios를 통한 실제 db와의 get요청으로 바꿀 것. get /posts/postsid
+    fetch("/data/posts-detail.json") // 나중에는 axios를 통한 실제 db와의 get요청으로 바꿀 것. get /posts/postsid
       .then((res) => res.json())
-      .then((posts) => {
-        const post = posts.find((p) => String(p.id) === postid);
-        setPost(post);
-      });
+      .then((post) => setPost(post[0]));
   }, [postid]);
 
   const navigate = useNavigate();
