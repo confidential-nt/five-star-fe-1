@@ -1,10 +1,12 @@
 import React from "react";
-import MainHeader from "../components/MainHeader";
+import MainOptions from "../components/Main/MainOptions";
+import MainContents from "../components/Main/MainContents";
 
 export default function Main() {
   return (
     <div>
-      <MainHeader />
+      <MainOptions />
+      <MainContents />
     </div>
   );
 }
