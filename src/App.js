@@ -18,9 +18,9 @@ function App() {
     <>
       <UserProvider>
         <Header onClick={onClick} />
-        <Outlet />
         {display === BtnId.LOG_IN && <LoginModal onClick={onClick} />}
         {display === BtnId.SIGN_UP && <SignUpModal onClick={onClick} />}
+        <Outlet />
       </UserProvider>
     </>
   );
