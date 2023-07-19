@@ -13,7 +13,8 @@ export default function Header({ onClick }) {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await axios.post("http://3.38.117.203/logout");
+    const result = await axios.post("http://3.38.117.203/logout");
+    console.log(result);
     logUserIn(null);
     navigate("/");
   };
@@ -42,7 +43,10 @@ export default function Header({ onClick }) {
       <Link to="/posts/1" style={{ marginRight: "10px" }}>
         상세페이지
       </Link>
-      <Link to="/posts/create">작성페이지</Link>
+      <Link to="/posts/create" style={{ marginRight: "10px" }}>
+        작성페이지
+      </Link>
+      <Link to="/resign">회원탈퇴</Link>
     </header>
   );
 }

@@ -23,7 +23,7 @@ export default function LoginModal({ onClick }) {
       email,
       password,
     });
-
+    console.log(result);
     logUserIn(result.data.message);
     onClick(null);
     navigate("/");

@@ -13,11 +13,12 @@ export default function SignUpModal({ onClick }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://3.38.117.203/users/signup", {
+    const result = await axios.post("http://3.38.117.203/users/signup", {
       email,
       name,
       password,
     });
+    console.log(result);
     onClick(null);
     navigate("/");
   };
