@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import Modal from "../Modal";
 import axios from "axios";
 
-export default function SignUpModal() {
+export default function SignUpModal({ onClick }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // post 요청..근데 서버 주소가 어디??
+
+    const result = await axios.post("http://3.38.117.203/users/signup", {
+      email,
+      name,
+      password,
+    });
+    console.log(result);
   };
 
   return (
-    <Modal>
+    <Modal onClick={onClick}>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
