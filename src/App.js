@@ -5,6 +5,7 @@ import { useState } from "react";
 import LoginModal from "./components/Modal/LoginModal/LoginModal";
 import { BtnId } from "./constant/btn-id";
 import SignUpModal from "./components/Modal/SignUpModal/SignUpModal";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   const [display, setDisplay] = useState();
@@ -15,10 +16,12 @@ function App() {
 
   return (
     <>
-      <Header onClick={onClick} />
-      <Outlet />
-      {display === BtnId.LOG_IN && <LoginModal />}
-      {display === BtnId.SIGN_UP && <SignUpModal />}
+      <UserProvider>
+        <Header onClick={onClick} />
+        <Outlet />
+        {display === BtnId.LOG_IN && <LoginModal onClick={onClick} />}
+        {display === BtnId.SIGN_UP && <SignUpModal onClick={onClick} />}
+      </UserProvider>
     </>
   );
 }

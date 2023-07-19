@@ -1,19 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BtnId } from "../../constant/btn-id";
+import { useUserContext } from "../../context/UserContext";
 
 export default function Header({ onClick }) {
   const handleClick = (e) => {
     onClick(e.target.id);
   };
+  const { isLogined } = useUserContext();
+
   return (
     <header>
-      <button type="button" onClick={handleClick} id={BtnId.LOG_IN}>
-        로그인
-      </button>
-      <button type="button" onClick={handleClick} id={BtnId.SIGN_UP}>
-        회원가입
-      </button>
+      {isLogined ? (
+        <>
+          <button type="button">로그아웃</button>
+        </>
+      ) : (
+        <>
+          <button type="button" onClick={handleClick} id={BtnId.LOG_IN}>
+            로그인
+          </button>
+          <button type="button" onClick={handleClick} id={BtnId.SIGN_UP}>
+            회원가입
+          </button>
+        </>
+      )}
       <Link to="/" style={{ marginRight: "10px" }}>
         메인페이지
       </Link>
