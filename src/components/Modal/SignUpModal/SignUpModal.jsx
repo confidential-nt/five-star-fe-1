@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Modal from "../Modal";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpModal({ onClick }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,6 +19,7 @@ export default function SignUpModal({ onClick }) {
       password,
     });
     onClick(null);
+    navigate("/");
   };
 
   return (
