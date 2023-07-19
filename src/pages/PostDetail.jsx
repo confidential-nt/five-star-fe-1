@@ -15,8 +15,8 @@ export default function PostDetail() {
   const navigate = useNavigate();
 
   const handleEdit = () => {
-    navigate("/posts/create", {
-      // 아니면 edit이라는 새로운 path 추가.
+    navigate("/posts/edit", {
+      // 아니면 edit이라는 새로운 path 추가. -> 나누는 게 나을 것 같다.
       state: {
         post,
       },
