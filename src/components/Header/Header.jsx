@@ -1,19 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BtnId } from "../../constant/btn-id";
 import { useUserContext } from "../../context/UserContext";
+import axios from "axios";
 
 export default function Header({ onClick }) {
   const handleClick = (e) => {
     onClick(e.target.id);
   };
-  const { isLogined } = useUserContext();
+  const { isLogined, logUserIn } = useUserContext();
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await axios.post("http://3.38.117.203/logout");
+    logUserIn(null);
+    navigate("/");
+  };
 
   return (
     <header>
       {isLogined ? (
         <>
-          <button type="button">로그아웃</button>
+          <button type="button" onClick={handleLogout}>
+            로그아웃
+          </button>
         </>
       ) : (
         <>
