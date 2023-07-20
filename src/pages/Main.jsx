@@ -6,7 +6,6 @@ export default function Main() {
   return (
     <div>
       <MainOptions />
-      <MainContents />
     </div>
   );
 }
