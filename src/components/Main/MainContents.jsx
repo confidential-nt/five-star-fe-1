@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
-// import posts from '../../../public/data/';
+import axios from 'axios';
 
 const MainContents = ({ sortBy }) => {
     const [data, setData] = useState({});
     const [page, setPage] = useState(1); // 현재 페이지
-    const [pageLimit, setPageLimit] = useState(2); // 페이지 당 게시물 수
+    const [pageLimit, setPageLimit] = useState(5); // 페이지 당 게시물 수
     const [total, setTotal] = useState(0);
     
     const numPages = Math.ceil(total / pageLimit);
@@ -14,15 +13,14 @@ const MainContents = ({ sortBy }) => {
     useEffect(() => {
         const fetchData = async() => {
             try {
-                const response = await fetch("/data/posts.json");
-                const jsonData = await response.json();
+                const response = await axios.get('http://3.38.117.203/posts');
 
                 let sortedData = [];
 
                 if (sortBy === 'id,DESC') {
-                    sortedData = jsonData.sort((a, b) => b.id - a.id);
+                    sortedData = response.data.sort((a, b) => b.id - a.id);
                 } else if (sortBy === 'id,ASC') {
-                    sortedData = jsonData.sort((a, b) => a.id - b.id);
+                    sortedData = response.data.sort((a, b) => a.id - b.id);
                 }
 
                 setData(sortedData);
