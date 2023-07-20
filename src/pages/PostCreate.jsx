@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
@@ -21,6 +23,7 @@ const PostCreate = () => {
 
     setTitle("");
     setContent("");
+    navigate("/"); // post 완료 후 메인페이지로 이동
   };
 
   // 게시글 post 기능
@@ -59,6 +62,7 @@ const PostCreate = () => {
             onChange={handleContentChange}
           />
         </div>
+        <button onClick={() => navigate(-1)}>Back</button>
         <button type="submit" disabled={loading}>
           {loading ? "Posting..." : "Post"}
         </button>
