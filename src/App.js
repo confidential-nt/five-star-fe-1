@@ -1,7 +1,7 @@
 import "./App.css";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginModal from "./components/Modal/LoginModal/LoginModal";
 import { BtnId } from "./constant/btn-id";
 import SignUpModal from "./components/Modal/SignUpModal/SignUpModal";
@@ -9,6 +9,12 @@ import { UserProvider } from "./context/UserContext";
 
 function App() {
   const [display, setDisplay] = useState();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setDisplay(null);
+  }, [location.key]);
 
   const onClick = (btn) => {
     setDisplay(btn);
