@@ -62,11 +62,13 @@ const PostCreate = () => {
             onChange={handleContentChange}
           />
         </div>
+      </form>
+      <div>
         <button onClick={() => navigate(-1)}>Back</button>
-        <button type="submit" disabled={loading}>
+        <button onClick={handleSubmit} disabled={loading}>
           {loading ? "Posting..." : "Post"}
         </button>
-      </form>
+      </div>
     </div>
   );
 };
