@@ -8,6 +8,7 @@ import PostDetail from "./pages/PostDetail";
 import PostCreate from "./pages/PostCreate";
 import NotFound from "./pages/NotFound";
 import ResignPage from "./pages/ResignPage";
+import PostEdit from "./pages/PostEdit";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
         element: <PostCreate />,
       },
       {
-        path: "/posts/edit",
-        element: <PostCreate />,
+        path: "/posts/:postid/edit",
+        element: <PostEdit />,
       },
       {
         path: "/resign",
