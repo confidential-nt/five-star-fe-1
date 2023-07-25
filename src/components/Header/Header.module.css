@@ -1,7 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--blog-white);
+  background-color: var(--blog-skyblue);
   padding: 1rem 10rem;
 }
 
