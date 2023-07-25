@@ -40,9 +40,6 @@ export default function Header({ onClick }) {
       <Link to="/" style={{ marginRight: "10px" }}>
         메인페이지
       </Link>
-      <Link to="/posts/1" style={{ marginRight: "10px" }}>
-        상세페이지
-      </Link>
       <Link to="/posts/create" style={{ marginRight: "10px" }}>
         작성페이지
       </Link>
