@@ -9,8 +9,8 @@ export default function PostEdit() {
 
   const { postid } = useParams();
 
-  const [title, setTitle] = useState(post.title);
-  const [content, setContent] = useState(post.content);
+  const [title, setTitle] = useState(post.title || "");
+  const [content, setContent] = useState(post.content || "");
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -38,10 +38,13 @@ export default function PostEdit() {
     if (!loading) {
       try {
         const response = await axios.patch(
-          `http://3.38.117.203/posts/${postid}`,
+          `/posts/${postid}`,
           {
-            title: title,
-            content: content,
+            title,
+            content,
+          },
+          {
+            withCredentials: true,
           }
         );
         console.log(response);

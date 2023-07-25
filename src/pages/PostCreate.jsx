@@ -30,10 +30,14 @@ const PostCreate = () => {
   async function postData() {
     if (!loading) {
       try {
-        const response = await axios.post("http://3.38.117.203/posts", {
-          title: title,
-          content: content,
-        });
+        const response = await axios.post(
+          "/posts",
+          {
+            title: title,
+            content: content,
+          },
+          { withCredentials: true }
+        );
         console.log(response);
       } catch (error) {
         console.error(error);
