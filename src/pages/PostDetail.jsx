@@ -26,6 +26,7 @@ export default function PostDetail() {
   const handleDelete = async () => {
     console.log(postid);
     await axios.delete(`/posts/${postid}`, { withCredentials: true });
+    navigate("/");
   };
 
   return (
