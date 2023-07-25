@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styles from './MainContentsStyle.module.css';
 
 const MainContents = ({ sortBy }) => {
     const [data, setData] = useState({});
@@ -15,7 +16,15 @@ const MainContents = ({ sortBy }) => {
     useEffect(() => {
         const fetchData = async() => {
             try {
-                const response = await axios.get('http://3.38.117.203/posts');
+                const response = await axios.get('http://3.38.117.203/posts', {
+                    params: {
+                        page: page,
+                        pageLimit: pageLimit,
+                        sortBy: sortBy,
+                    },
+                });
+
+                console.log(response.data);
 
                 let sortedData = [];
 
@@ -27,7 +36,7 @@ const MainContents = ({ sortBy }) => {
 
                 setData(sortedData);
                 setTotal(sortedData.length);
-                setPageLimit(response.data.pageable.size);
+                // setPageLimit(response.data.params.size);
             } catch(error) {
                 console.error('Error fetching local data:', error);
             }
@@ -41,25 +50,31 @@ const MainContents = ({ sortBy }) => {
     }
 
     return (
-        <div className="container">
-            <div className="contents">
-                {data.length > 0 && (
-                    <ul>
-                        {data.slice(offset, offset + pageLimit).map((item) => (
-                            <>
-                                <li key={item.id} >
-                                    <h1 onClick={() => handleClick(item.id)} style={{cursor: 'pointer'}}>{item.title}</h1>
-                                    <p>{item.content}</p>
-                                    <p>{item.createAt}</p>
-                                    <p>{item.modifiedAt}</p>
-                                </li>
-                            </>
-                        ))}
-                    </ul>
-                )
-                }
+        <div className={styles.container}>
+            <div className={styles.contents}>
+                <div className={styles.content}>
+                    {data.length > 0 && (
+                        <ul>
+                            {data.slice(offset, offset + pageLimit).map((item) => (
+                                <>
+                                    <li 
+                                    key={item.id}
+                                    onClick={() => {handleClick(item.id); console.log(item);}}
+                                    style={{cursor: 'pointer'}}
+                                    >
+                                        <h1>{item.title}</h1>
+                                        {/* <p>{item.content}</p> */}
+                                        <p>{item.createAt}</p>
+                                        <p>{item.modifiedAt}</p>
+                                    </li>
+                                </>
+                            ))}
+                        </ul>
+                    )
+                    }
+                </div>
             </div>
-            <div className="pageButtons">
+            <div className={styles.pageButtons}>
                 <button onClick={() => setPage(page - 1)} disabled={page === 1}>
                     &lt;
                 </button>

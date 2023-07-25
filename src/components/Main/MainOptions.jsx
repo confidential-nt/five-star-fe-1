@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MainContents from './MainContents';
-// import axios from 'axios';
+import styles from './MainOptionsStyle.module.css';
 
 const MainOptions = () => {
   const [sortBy, setSortBy] = useState('id,DESC');
+  const [isClickedLatest, setIsClickedLatest] = useState(false);
+  const [isClickedOldest, setIsClickedOldest] = useState(false);
 
   const handleSortByLatest = () => {
     setSortBy('id,DESC');
+    setIsClickedLatest(true);
+    setIsClickedOldest(false);
   }
 
   const handleSortByOldest = () => {
     setSortBy('id,ASC');
+    setIsClickedLatest(false);
+    setIsClickedOldest(true);
   }
 
   return (
-    <div className="main-Options">
-      <button onClick={handleSortByLatest}>최신순</button>
-      <button onClick={handleSortByOldest}>오래된순</button>
-
+    <>
+      <div className={styles.options}>
+        <button className={ `${styles.latestBtn} ${isClickedLatest ? 'clickedLatest' : ''}`} onClick={handleSortByLatest}>최신순</button>
+        <button className={`${styles.oldestBtn} ${isClickedOldest ? 'clickedOldest' : ''}`} onClick={handleSortByOldest}>오래된순</button>
+      </div>
       <MainContents sortBy={sortBy} />
-    </div>
+    </>
   );
 }
 

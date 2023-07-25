@@ -1,0 +1,44 @@
+.options {
+    margin-top: 20px;
+}
+
+.latestBtn,
+.oldestBtn {
+    padding: 20px;
+    font-size: 15px;
+    position: relative;
+}
+
+.latestBtn::after,
+.oldestBtn::after  {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #C4DFDF;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 10px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.latestBtn:hover,
+.oldestBtn:hover {
+    color: #C4DFDF;
+}
+
+.latestBtn.clickedLatest::after {
+    transform: scaleX(1);
+}
+
+.oldestBtn.clickedOldest::after {
+    transform: scaleX(1);
+}
+
+.latestBtn.clickedLatest::after,
+.oldestBtn.clickedOldest::after {
+    z-index: -1; 
+}
+
+
+/* #C4DFDF, #D2E9E9, #E3F4F4, #F8F6F4 */

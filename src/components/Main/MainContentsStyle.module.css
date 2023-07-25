@@ -1,0 +1,40 @@
+.container {
+    text-align: center;
+    background-color: #F8F6F4;
+}
+
+.content ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content ul li {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    width: 400px;
+    height: 200px;
+}
+
+.content ul li:hover {
+    color: #C4DFDF;
+}
+
+.content ul li h1 {
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 10px;
+}
+
+.content ul li p {
+    opacity: 0.5;
+}
+
+.pageButtons button {
+    padding: 10px;
+}
+
+.pageButtons button:hover {
+    color: #C4DFDF;
+}
