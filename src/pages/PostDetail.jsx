@@ -8,9 +8,7 @@ export default function PostDetail() {
   const { postid } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`/posts/${postid}`, { withCredentials: true })
-      .then((post) => setPost(post));
+    axios.get(`/posts/${postid}`).then((post) => setPost(post));
   }, [postid]);
 
   const navigate = useNavigate();
