@@ -9,8 +9,10 @@ const onScroll = (e) => {
 };
 
 export default function Modal({ onClick, children }) {
-  const handleClick = () => {
-    onClick(null);
+  const handleClick = (e) => {
+    if (e.target === e.currentTarget) {
+      onClick(null);
+    }
   };
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function Modal({ onClick, children }) {
   });
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={handleClick}>
       <div className={styles.modal}>
         <header>
           <button onClick={handleClick}>X</button>
