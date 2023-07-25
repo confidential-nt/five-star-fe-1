@@ -1,3 +1,10 @@
+:root {
+  --blog-skyblue: #c4dfdf;
+  --blog-light-skyblue: #d2e9e9;
+  --blog-more-light-skyblue: #e3f4f4;
+  --blog-white: #f8f6f4;
+}
+
 * {
   margin: 0;
   padding: 0;

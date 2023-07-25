@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--blog-white);
+  padding: 1rem 10rem;
+}
+
+.headerLeft button:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.headerRight a:not(:last-child) {
+  margin-right: 1rem;
+}
