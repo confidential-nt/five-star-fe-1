@@ -15,9 +15,7 @@ const MainContents = ({ sortBy }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/posts", {
-          withCredentials: true,
-        });
+        const response = await axios.get("/posts");
 
         let sortedData = [];
 
