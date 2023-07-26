@@ -35,7 +35,7 @@
     transform: scaleX(1);
 }
 
-.latestBtn.clickedLatest::after,
+/* .latestBtn.clickedLatest::after,
 .oldestBtn.clickedOldest::after {
     z-index: -1; 
-}
+} */

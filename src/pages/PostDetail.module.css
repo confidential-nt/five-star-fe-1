@@ -1,0 +1,36 @@
+.content {
+  max-width: 70%;
+  width: 70%;
+  margin: 2rem auto 0 auto;
+}
+
+.content h1 {
+  background-color: var(--blog-more-light-skyblue);
+  padding: 0.5rem 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.timeInfo span {
+  display: block;
+}
+
+.btnContainer button:first-child {
+  margin-right: 0.5rem;
+}
+
+.btnContainer button {
+  font-size: 1rem;
+}
+
+.content p {
+  min-height: 60vh;
+  border: 1px solid var(--blog-skyblue);
+  padding: 1rem;
+  white-space: pre-line;
+}

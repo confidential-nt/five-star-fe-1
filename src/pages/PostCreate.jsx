@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from "./PostCreate.module.css";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
@@ -46,31 +47,46 @@ const PostCreate = () => {
     setLoading(false);
   }
 
+  // 뒤로가기
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="blog-editor">
+    <div className="editor">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title"></label>
           <input
+            className={styles.input}
             type="text"
             id="title"
             value={title}
             onChange={handleTitleChange}
+            placeholder="제목을 입력하세요"
           />
         </div>
         <div>
-          <label htmlFor="content">Content</label>
+          <label htmlFor="content"></label>
           <textarea
+            className={styles.textarea}
             id="content"
             value={content}
             onChange={handleContentChange}
+            placeholder="내용을 입력하세요"
           />
         </div>
       </form>
-      <div>
-        <button onClick={() => navigate(-1)}>Back</button>
-        <button onClick={handleSubmit} disabled={loading}>
-          {loading ? "Posting..." : "Post"}
+      <div className={styles.buttons}>
+        <button className={styles.backBtn} onClick={handleBack}>
+          ↩ 뒤로가기
+        </button>
+        <button
+          className={styles.submitBtn}
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? "💬 작성글 등록 중..." : "✔ 등록하기"}
         </button>
       </div>
     </div>
