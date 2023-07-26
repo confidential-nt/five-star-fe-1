@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import styles from "./PostCreate.module.css";
 
 export default function PostEdit() {
   const {
@@ -33,7 +34,10 @@ export default function PostEdit() {
     navigate("/"); // post 완료 후 메인페이지로 이동
   };
 
-  // 게시글 post 기능
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   async function postData() {
     if (!loading) {
       try {
@@ -59,27 +63,35 @@ export default function PostEdit() {
     <div className="blog-editor">
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title"></label>
           <input
             type="text"
             id="title"
+            className={styles.input}
             value={title}
             onChange={handleTitleChange}
           />
         </div>
         <div>
-          <label htmlFor="content">Content</label>
+          <label htmlFor="content"></label>
           <textarea
             id="content"
+            className={styles.textarea}
             value={content}
             onChange={handleContentChange}
           />
         </div>
       </form>
-      <div>
-        <button onClick={() => navigate(-1)}>Back</button>
-        <button onClick={handleSubmit} disabled={loading}>
-          {loading ? "Posting..." : "Edit"}
+      <div className={styles.buttons}>
+        <button className={styles.backBtn} onClick={handleBack}>
+          ↩ 뒤로가기
+        </button>
+        <button
+          className={styles.submitBtn}
+          onClick={handleSubmit}
+          disabled={loading}
+        >
+          {loading ? "💬 작성글 수정 중..." : "✔ 수정하기"}
         </button>
       </div>
     </div>
