@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Victor+Mono:wght@300;400;500;600;700&display=swap");
-
-:root {
-  --blog-skyblue: #c4dfdf;
-  --blog-light-skyblue: #d2e9e9;
-  --blog-more-light-skyblue: #e3f4f4;
-  --blog-white: #f8f6f4;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Noto Sans KR", sans-serif;
-  font-family: "Victor Mono", monospace;
-}
-
-input {
+.input {
   display: flex;
   justify-content: center;
   margin: 2rem;
@@ -32,7 +12,7 @@ input {
   border-collapse: collapse;
 }
 
-textarea {
+.textarea {
   display: flex;
   justify-content: center;
   margin: 2rem;
