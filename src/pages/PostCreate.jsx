@@ -58,6 +58,7 @@ const PostCreate = () => {
         <div>
           <label htmlFor="title"></label>
           <input
+            className={styles.input}
             type="text"
             id="title"
             value={title}
@@ -68,6 +69,7 @@ const PostCreate = () => {
         <div>
           <label htmlFor="content"></label>
           <textarea
+            className={styles.textarea}
             id="content"
             value={content}
             onChange={handleContentChange}
