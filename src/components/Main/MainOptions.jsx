@@ -4,7 +4,7 @@ import styles from './MainOptionsStyle.module.css';
 
 const MainOptions = () => {
   const [sortBy, setSortBy] = useState('id,DESC');
-  const [isClickedLatest, setIsClickedLatest] = useState(false);
+  const [isClickedLatest, setIsClickedLatest] = useState(true);
   const [isClickedOldest, setIsClickedOldest] = useState(false);
 
   const handleSortByLatest = () => {

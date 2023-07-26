@@ -1,11 +1,12 @@
 .options {
-    margin-top: 20px;
+    margin-top: 1.5rem;
 }
 
 .latestBtn,
 .oldestBtn {
-    padding: 20px;
-    font-size: 15px;
+    margin-left: 1.2rem;
+    padding: 1.5rem;
+    font-size: 1rem;
     position: relative;
 }
 
@@ -13,18 +14,18 @@
 .oldestBtn::after  {
     content: '';
     position: absolute;
-    border-bottom: 1px solid #C4DFDF;
+    border-bottom: 1px solid var(--blog-skyblue);
     width: 100%;
-    height: 2px;
+    height: 0.8rem;
     left: 0;
-    bottom: 10px;
+    bottom: 0.725rem;
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
 
 .latestBtn:hover,
 .oldestBtn:hover {
-    color: #C4DFDF;
+    color: var(--blog-skyblue);
 }
 
 .latestBtn.clickedLatest::after {
@@ -34,8 +35,3 @@
 .oldestBtn.clickedOldest::after {
     transform: scaleX(1);
 }
-
-/* .latestBtn.clickedLatest::after,
-.oldestBtn.clickedOldest::after {
-    z-index: -1; 
-} */

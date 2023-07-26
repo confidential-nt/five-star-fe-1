@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    background-color: #F8F6F4;
+    background-color: var(--blog-white);
 }
 
 .content ul {
@@ -24,17 +24,29 @@
 
 .content ul li h1 {
     border-bottom: 1px solid #ebebeb;
-    margin-bottom: 10px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.8rem;
 }
 
 .content ul li p {
-    opacity: 0.5;
+    opacity: 0.4;
+    font-size: 0.9rem;
 }
 
 .pageButtons button {
-    padding: 10px;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
 }
 
 .pageButtons button:hover {
-    color: #C4DFDF;
+    color: var(--blog-skyblue);
+}
+
+.currentBtn {
+    color: var(--blog-skyblue);
+}
+
+.pageBtn {
+    color: #757373;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import timeAgo from "../../utils/time-ago";
 import axios from 'axios';
 import styles from './MainContentsStyle.module.css';
 
@@ -16,13 +17,7 @@ const MainContents = ({ sortBy }) => {
     useEffect(() => {
         const fetchData = async() => {
             try {
-                const response = await axios.get('http://3.38.117.203/posts', {
-                    params: {
-                        page: page,
-                        pageLimit: pageLimit,
-                        sortBy: sortBy,
-                    },
-                });
+                const response = await axios.get('/posts');
 
                 console.log(response.data);
 
@@ -63,8 +58,8 @@ const MainContents = ({ sortBy }) => {
                                     style={{cursor: 'pointer'}}
                                     >
                                         <h1>{item.title}</h1>
-                                        <p>{item.createAt}</p>
-                                        <p>{item.modifiedAt}</p>
+                                        <p>{timeAgo(item.createAt, navigator.language)}</p>
+                                        <p>{`${new Date(item.modifiedAt).toLocaleString()}`}</p>
                                     </li>
                                 </>
                             ))}
@@ -81,6 +76,7 @@ const MainContents = ({ sortBy }) => {
                 .fill()
                 .map((_, i) => (
                     <button
+                        className={page === i + 1 ? styles.currentBtn : styles.pageBtn}
                         key={i+1}
                         onClick={() => setPage(i+1)}
                     >
