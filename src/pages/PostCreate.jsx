@@ -49,7 +49,7 @@ const PostCreate = () => {
 
   // 뒤로가기
   const handleBack = () => {
-    navigate("-1");
+    navigate(-1);
   };
 
   return (
