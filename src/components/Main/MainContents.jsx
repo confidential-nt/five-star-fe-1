@@ -63,7 +63,6 @@ const MainContents = ({ sortBy }) => {
                                     style={{cursor: 'pointer'}}
                                     >
                                         <h1>{item.title}</h1>
-                                        {/* <p>{item.content}</p> */}
                                         <p>{item.createAt}</p>
                                         <p>{item.modifiedAt}</p>
                                     </li>

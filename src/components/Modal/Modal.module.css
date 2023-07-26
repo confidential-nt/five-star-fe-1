@@ -1,0 +1,36 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: 50%;
+  height: 50%;
+}
+
+.modal header {
+  width: 100%;
+  background-color: var(--blog-skyblue);
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.modal header button {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.children {
+  height: 100%;
+  background-color: var(--blog-white);
+  padding: 2rem 5rem;
+}

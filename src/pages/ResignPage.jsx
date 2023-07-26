@@ -17,8 +17,9 @@ export default function ResignPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.delete("http://3.38.117.203/users/resign", {
-        password,
+      const result = await axios.delete("/users/resign", {
+        data: { password },
+        withCredentials: true,
       });
       console.log(result);
       logUserIn(null);

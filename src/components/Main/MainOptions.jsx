@@ -22,7 +22,7 @@ const MainOptions = () => {
   return (
     <>
       <div className={styles.options}>
-        <button className={ `${styles.latestBtn} ${isClickedLatest ? 'clickedLatest' : ''}`} onClick={handleSortByLatest}>최신순</button>
+        <button className={ `${styles.latestBtn} ${isClickedLatest ? styles.clickedLatest : ''}`} onClick={handleSortByLatest}>최신순</button>
         <button className={`${styles.oldestBtn} ${isClickedOldest ? 'clickedOldest' : ''}`} onClick={handleSortByOldest}>오래된순</button>
       </div>
       <MainContents sortBy={sortBy} />

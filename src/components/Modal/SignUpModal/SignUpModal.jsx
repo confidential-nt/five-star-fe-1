@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "../Modal";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from "./SignUpModal.module.css";
 
 export default function SignUpModal({ onClick }) {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export default function SignUpModal({ onClick }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const result = await axios.post("http://3.38.117.203/users/signup", {
+    const result = await axios.post("/users/signup", {
       email,
       name,
       password,
@@ -25,7 +26,7 @@ export default function SignUpModal({ onClick }) {
 
   return (
     <Modal onClick={onClick}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="email"
           placeholder="이메일"

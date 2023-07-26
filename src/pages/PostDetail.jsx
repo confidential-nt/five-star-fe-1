@@ -8,9 +8,7 @@ export default function PostDetail() {
   const { postid } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`http://3.38.117.203/posts/${postid}`)
-      .then((post) => setPost(post));
+    axios.get(`/posts/${postid}`).then((post) => setPost(post));
   }, [postid]);
 
   const navigate = useNavigate();
@@ -24,7 +22,9 @@ export default function PostDetail() {
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://3.38.117.203/posts/${postid}`);
+    console.log(postid);
+    await axios.delete(`/posts/${postid}`, { withCredentials: true });
+    navigate("/");
   };
 
   return (
