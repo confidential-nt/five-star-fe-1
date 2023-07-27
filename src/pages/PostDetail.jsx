@@ -9,11 +9,14 @@ export default function PostDetail() {
   const [post, setPost] = useState();
   const { postid } = useParams();
 
-  useEffect(() => {
-    axios.get(`/posts/${postid}`).then((post) => setPost(post.data));
-  }, [postid]);
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`/posts/${postid}`)
+      .then((post) => setPost(post.data))
+      .catch(() => navigate("/"));
+  }, [postid, navigate]);
 
   const { isLogined } = useUserContext();
 

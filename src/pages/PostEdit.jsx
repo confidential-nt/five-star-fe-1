@@ -22,11 +22,14 @@ export default function PostEdit() {
       if (!isLogined) {
         checkLogin().catch(() => navigate("/"));
       }
-      axios.get(`/posts/${postid}`).then((res) => {
-        setPost(res.data);
-        setTitle(res.data.title);
-        setContent(res.data.content);
-      });
+      axios
+        .get(`/posts/${postid}`)
+        .then((res) => {
+          setPost(res.data);
+          setTitle(res.data.title);
+          setContent(res.data.content);
+        })
+        .catch(() => navigate("/"));
     } else {
       setPost(state.post);
       setTitle(state.post.title);
