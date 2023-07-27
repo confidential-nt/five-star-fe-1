@@ -8,6 +8,7 @@
   border-bottom: solid 1px var(--blog-light-skyblue);
   border-collapse: collapse;
   font-family: "Noto Sans KR", sans-serif;
+  font-family: "Victor Mono", monospace;
 }
 
 .textarea {
@@ -20,13 +21,14 @@
   border: none;
   border-collapse: collapse;
   font-family: "Noto Sans KR", sans-serif;
+  font-family: "Victor Mono", monospace;
 }
 
 .buttons {
   display: flex;
   flex-basis: 10%;
   justify-content: space-between;
-  margin: 2rem;
+  margin: 2rem 4rem 0 4rem;
 }
 
 .backBtn {
