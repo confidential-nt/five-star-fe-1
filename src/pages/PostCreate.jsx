@@ -79,14 +79,14 @@ const PostCreate = () => {
       </form>
       <div className={styles.buttons}>
         <button className={styles.backBtn} onClick={handleBack}>
-          ↩ 뒤로가기
+          뒤로가기
         </button>
         <button
           className={styles.submitBtn}
           onClick={handleSubmit}
           disabled={loading}
         >
-          {loading ? "💬 작성글 등록 중..." : "✔ 등록하기"}
+          {loading ? "작성글 등록 중..." : "등록하기"}
         </button>
       </div>
     </div>
