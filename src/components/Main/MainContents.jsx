@@ -8,36 +8,57 @@ const MainContents = ({ sortBy }) => {
     const [data, setData] = useState({});
     const [page, setPage] = useState(1); // 현재 페이지
     const [pageLimit, setPageLimit] = useState(10); // 페이지 당 게시물 수
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState('');
     const navigate = useNavigate();
     
     const numPages = Math.ceil(total / pageLimit);
     const offset = (page-1) * pageLimit;
+    
+    const fetchAllPosts = async () => {
+        let allPosts = [];
+        let currentPage = 0;
+    
+        try {
+            while (true) {
+                const response = await axios.get(`/posts?page=${currentPage}`);
+                const posts = response.data; // 현재 페이지의 게시물들
+
+                if (posts.length === 0) {
+                // 더 이상 데이터가 없으면 반복문 종료
+                    break;
+                }
+
+                allPosts = allPosts.concat(posts);
+                currentPage += 1;
+            }
+            return allPosts; // 모든 게시물 데이터 반환
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return null;
+            }
+        };
 
     useEffect(() => {
-        const fetchData = async() => {
-            try {
-                const response = await axios.get('/posts');
-
-                console.log(response.data);
-
+        const sortData = async() => {
+            try {                
+                const response = await fetchAllPosts();
+                console.log(response);
                 let sortedData = [];
 
                 if (sortBy === 'id,DESC') {
-                    sortedData = response.data.sort((a, b) => b.id - a.id);
+                    sortedData = response.sort((a, b) => b.id - a.id);
                 } else if (sortBy === 'id,ASC') {
-                    sortedData = response.data.sort((a, b) => a.id - b.id);
+                    sortedData = response.sort((a, b) => a.id - b.id);
                 }
 
                 setData(sortedData);
                 setTotal(sortedData.length);
-                // setPageLimit(response.data.params.size);
-            } catch(error) {
+            }  catch(error) {
                 console.error('Error fetching local data:', error);
             }
         };
 
-        fetchData();
+        sortData();
     }, [sortBy]);
 
     const handleClick = (itemId) => {
@@ -54,7 +75,7 @@ const MainContents = ({ sortBy }) => {
                                 <>
                                     <li 
                                     key={item.id}
-                                    onClick={() => {handleClick(item.id); console.log(item);}}
+                                    onClick={() => {handleClick(item.id);}}
                                     style={{cursor: 'pointer'}}
                                     >
                                         <h1>{item.title}</h1>
