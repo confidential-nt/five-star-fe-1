@@ -53,7 +53,7 @@ const PostCreate = () => {
   };
 
   return (
-    <div className="editor">
+    <div className={styles.editor}>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title"></label>
