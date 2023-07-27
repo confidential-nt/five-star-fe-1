@@ -27,7 +27,7 @@
 }
 
 .form button {
-  background-color: var(--blog-more-light-skyblue);
+  background-color: var(--blog-skyblue);
   color: #747474;
   font-size: 1.2rem;
   padding: 1rem;

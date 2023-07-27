@@ -5,6 +5,7 @@
   --blog-light-skyblue: #d2e9e9;
   --blog-more-light-skyblue: #e3f4f4;
   --blog-white: #f8f6f4;
+  --blog-ivory: #f6f4eb;
 }
 
 * {
@@ -16,6 +17,7 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-family: "Victor Mono", monospace;
+  background-color: var(--blog-ivory);
 }
 
 li {
