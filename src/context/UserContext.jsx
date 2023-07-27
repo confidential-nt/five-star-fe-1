@@ -17,8 +17,13 @@ export function UserProvider({ children }) {
     setisLogined(Boolean(data));
   };
 
+  const checkLogin = async () => {
+    const response = await axios.get("/login/check");
+    return response.data;
+  };
+
   return (
-    <UserContext.Provider value={{ isLogined, logUserIn }}>
+    <UserContext.Provider value={{ isLogined, logUserIn, checkLogin }}>
       {children}
     </UserContext.Provider>
   );

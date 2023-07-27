@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import styles from "./ResignPage.module.css";
@@ -9,7 +9,13 @@ export default function ResignPage() {
 
   const navigate = useNavigate();
 
-  const { logUserIn } = useUserContext();
+  const { logUserIn, isLogined } = useUserContext();
+
+  useEffect(() => {
+    if (!isLogined) {
+      navigate("/");
+    }
+  }, [isLogined, navigate]);
 
   const handleChange = (e) => {
     setPassword(e.target.value);
