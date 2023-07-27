@@ -41,6 +41,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1"
+    "eslint-config-react-app": "^7.0.1",
+    "postcss": "^8.4.26",
+    "postcss-cli": "^10.1.0"
   }
 }
