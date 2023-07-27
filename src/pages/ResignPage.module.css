@@ -27,6 +27,41 @@
 }
 
 .form button {
+  background-color: var(--blog-more-light-skyblue);
+  color: #747474;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.form {
+  max-width: 50%;
+  width: 50%;
+  height: 50vh;
+  margin: 8rem auto 0 auto;
+  border: 1px solid var(--blog-skyblue);
+  position: relative;
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 5rem;
+  height: 100%;
+}
+
+.form input {
+  border: none;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--blog-skyblue);
+}
+.form input::placeholder {
+  font-size: 1.2rem;
+}
+
+.form button {
   background-color: var(--blog-skyblue);
   color: #747474;
   font-size: 1.2rem;
