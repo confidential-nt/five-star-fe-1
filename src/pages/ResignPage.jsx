@@ -1,14 +1,21 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
+import styles from "./ResignPage.module.css";
 
 export default function ResignPage() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const { logUserIn } = useUserContext();
+  const { logUserIn, isLogined } = useUserContext();
+
+  useEffect(() => {
+    if (!isLogined) {
+      navigate("/");
+    }
+  }, [isLogined, navigate]);
 
   const handleChange = (e) => {
     setPassword(e.target.value);
@@ -30,16 +37,18 @@ export default function ResignPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="password"
-        placeholder="비밀번호를 입력하세요."
-        value={password}
-        onChange={handleChange}
-        required
-        autoComplete="on"
-      />
-      <button type="submit">회원탈퇴</button>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div>
+        <input
+          type="password"
+          placeholder="비밀번호를 입력하세요."
+          value={password}
+          onChange={handleChange}
+          required
+          autoComplete="on"
+        />
+        <button type="submit">회원탈퇴</button>
+      </div>
     </form>
   );
 }

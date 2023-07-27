@@ -45,10 +45,12 @@ export default function Header({ onClick }) {
           </>
         )}
       </div>
-      <div className={styles.headerRight}>
-        <Link to="/posts/create">작성페이지</Link>
-        <Link to="/resign">회원탈퇴</Link>
-      </div>
+      {isLogined && (
+        <div className={styles.headerRight}>
+          <Link to="/posts/create">작성페이지</Link>
+          <Link to="/resign">회원탈퇴</Link>
+        </div>
+      )}
     </header>
   );
 }
