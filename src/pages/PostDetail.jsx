@@ -3,6 +3,7 @@ import timeAgo from "../utils/time-ago";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "./PostDetail.module.css";
+import { useUserContext } from "../context/UserContext";
 
 export default function PostDetail() {
   const [post, setPost] = useState();
@@ -13,6 +14,8 @@ export default function PostDetail() {
   }, [postid]);
 
   const navigate = useNavigate();
+
+  const { isLogined } = useUserContext();
 
   const handleEdit = () => {
     navigate(`/posts/${postid}/edit`, {
@@ -39,14 +42,17 @@ export default function PostDetail() {
                 {`(${new Date(post.createAt).toLocaleString()})`}
               </span>
               <span>
-                수정된 날짜: {timeAgo(post.modifiedAt, navigator.language)}{" "}
+                마지막으로 수정된 날짜:{" "}
+                {timeAgo(post.modifiedAt, navigator.language)}{" "}
                 {`(${new Date(post.modifiedAt).toLocaleString()})`}
               </span>
             </div>
-            <div className={styles.btnContainer}>
-              <button onClick={handleEdit}>수정</button>
-              <button onClick={handleDelete}>삭제</button>
-            </div>
+            {isLogined && (
+              <div className={styles.btnContainer}>
+                <button onClick={handleEdit}>수정</button>
+                <button onClick={handleDelete}>삭제</button>
+              </div>
+            )}
           </div>
           <p>{post.content}</p>
         </>
