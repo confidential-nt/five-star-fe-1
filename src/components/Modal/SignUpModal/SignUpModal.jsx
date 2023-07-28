@@ -34,6 +34,9 @@ export default function SignUpModal({ onClick }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           autoComplete="on"
+          minLength={5}
+          maxLength={320}
+          pattern="^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$"
           required
         />
         <input
@@ -43,6 +46,8 @@ export default function SignUpModal({ onClick }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           autoComplete="on"
+          minLength={2}
+          maxLength={20}
           required
         />
         <input
@@ -52,6 +57,8 @@ export default function SignUpModal({ onClick }) {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={4}
+          maxLength={20}
           required
         />
         <button type="submit">회원가입</button>

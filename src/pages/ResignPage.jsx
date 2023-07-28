@@ -46,6 +46,8 @@ export default function ResignPage() {
           onChange={handleChange}
           required
           autoComplete="on"
+          minLength={4}
+          maxLength={20}
         />
         <button type="submit">회원탈퇴</button>
       </div>

@@ -93,6 +93,9 @@ export default function PostEdit() {
                 className={styles.input}
                 value={title}
                 onChange={handleTitleChange}
+                required
+                minLength={1}
+                maxLength={20}
               />
             </div>
             <div>
@@ -102,6 +105,9 @@ export default function PostEdit() {
                 className={styles.textarea}
                 value={content}
                 onChange={handleContentChange}
+                required
+                minLength={1}
+                maxLength={1000}
               />
             </div>
           </form>
