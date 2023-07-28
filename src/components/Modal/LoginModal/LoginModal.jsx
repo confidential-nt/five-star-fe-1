@@ -39,6 +39,9 @@ export default function LoginModal({ onClick }) {
           autoComplete="on"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          minLength={5}
+          maxLength={320}
+          pattern="^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$"
           required
         />
         <input
@@ -47,6 +50,8 @@ export default function LoginModal({ onClick }) {
           autoComplete="on"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          minLength={4}
+          maxLength={20}
           required
         />
         <button type="submit">로그인</button>
