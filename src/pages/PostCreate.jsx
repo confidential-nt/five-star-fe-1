@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "./PostCreate.module.css";
+import { useUserContext } from "../context/UserContext";
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { isLogined, checkLogin } = useUserContext();
+
+  // 로그인 체크
+  useEffect(() => {
+    if (!isLogined) {
+      checkLogin().catch(() => navigate("/"));
+    }
+  }, [isLogined, navigate, checkLogin]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
