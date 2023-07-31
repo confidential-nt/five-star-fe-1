@@ -8,10 +8,10 @@ const PostCreate = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const { isLogined, checkLogin } = useUserContext();
 
-  const navigate = useNavigate();
+  // 로그인 체크
   useEffect(() => {
     if (!isLogined) {
       checkLogin().catch(() => navigate("/"));
@@ -19,11 +19,17 @@ const PostCreate = () => {
   }, [isLogined, navigate, checkLogin]);
 
   const handleTitleChange = (e) => {
-    setTitle(e.target.value);
+    const value = e.target.value;
+    if (value.length <= 20) {
+      setTitle(value);
+    }
   };
 
   const handleContentChange = (e) => {
-    setContent(e.target.value);
+    const value = e.target.value;
+    if (value.length <= 1000) {
+      setContent(value);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -73,6 +79,7 @@ const PostCreate = () => {
             value={title}
             onChange={handleTitleChange}
             placeholder="제목을 입력하세요"
+            required
           />
         </div>
         <div>
@@ -83,6 +90,7 @@ const PostCreate = () => {
             value={content}
             onChange={handleContentChange}
             placeholder="내용을 입력하세요"
+            required
           />
         </div>
       </form>
