@@ -1,0 +1,25 @@
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns li a {
+  padding: 0.8rem;
+}
+
+.btns li:hover {
+  color: var(--blog-skyblue);
+}
+
+.pageBtn {
+  color: #757373;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.currentBtn {
+  color: var(--blog-skyblue);
+}
