@@ -1,52 +1,35 @@
 .container {
-    text-align: center;
-    background-color: var(--blog-white);
+  text-align: center;
+  background-color: var(--blog-white);
 }
 
 .content ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .content ul li {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #d3d3d3;
-    width: 400px;
-    height: 200px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #d3d3d3;
+  width: 400px;
+  height: 200px;
 }
 
 .content ul li:hover {
-    color: #C4DFDF;
+  color: #c4dfdf;
 }
 
 .content ul li h1 {
-    border-bottom: 1px solid #ebebeb;
-    padding-bottom: 1rem;
-    margin-bottom: 1.2rem;
-    font-size: 1.8rem;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
 }
 
 .content ul li p {
-    opacity: 0.4;
-    font-size: 0.9rem;
-}
-
-.pageButtons button {
-    margin-bottom: 1rem;
-    padding: 0.8rem;
-}
-
-.pageButtons button:hover {
-    color: var(--blog-skyblue);
-}
-
-.currentBtn {
-    color: var(--blog-skyblue);
-}
-
-.pageBtn {
-    color: #757373;
+  opacity: 0.4;
+  font-size: 0.9rem;
 }
