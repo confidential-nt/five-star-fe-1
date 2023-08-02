@@ -15,8 +15,7 @@ export default function Header({ onClick }) {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    const result = await axios.post("/logout", {}, { withCredentials: true });
-    console.log(result);
+    await axios.post("/logout", {}, { withCredentials: true });
     logUserIn(null);
     navigate("/");
   };
