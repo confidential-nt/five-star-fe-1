@@ -14,6 +14,11 @@ const MainContents = ({ sortBy }) => {
   const [total, setTotal] = useState("");
   const navigate = useNavigate();
 
+  // eslint-disable-next-line
+  useEffect(() => {
+    setPage(Number(searchParams.get("page")) || 1);
+  });
+
   useEffect(() => {
     const sortData = async () => {
       try {
@@ -89,6 +94,7 @@ const MainContents = ({ sortBy }) => {
         onNumberClick={onNumberClick}
         onPrevClick={onPrevClick}
         onNextClick={onNextClick}
+        currentPage={page}
       />
     </div>
   );

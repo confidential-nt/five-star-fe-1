@@ -1,11 +1,13 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import styles from "./Pagination.module.css";
 
 export default function Pagination({
   onNumberClick,
   onPrevClick,
   onNextClick,
+  currentPage,
 }) {
   const [totalPosts, setTotalPosts] = useState();
 
@@ -25,18 +27,31 @@ export default function Pagination({
   }, []);
   return (
     <nav>
-      <li onClick={handlePrevClick}>
-        <button>&lt;</button>
-      </li>
-      {totalPosts &&
-        Array.from({ length: Math.ceil(totalPosts / 10) }, (_, k) => (
-          <li key={k} onClick={() => handleNumberClick(k + 1)}>
-            <Link to={`/posts?page=${k + 1}`}>{k + 1}</Link>
-          </li>
-        ))}
-      <li onClick={handleNextClick}>
-        <button>&gt;</button>
-      </li>
+      <ul className={styles.btns}>
+        <li onClick={handlePrevClick}>
+          <button className={styles.pageBtn} disabled={currentPage === 1}>
+            &lt;
+          </button>
+        </li>
+        {totalPosts &&
+          Array.from({ length: Math.ceil(totalPosts / 10) }, (_, k) => (
+            <li
+              className={currentPage - 1 === k ? styles.currentBtn : ""}
+              key={k}
+              onClick={() => handleNumberClick(k + 1)}
+            >
+              <Link to={`/posts?page=${k + 1}`}>{k + 1}</Link>
+            </li>
+          ))}
+        <li onClick={handleNextClick}>
+          <button
+            className={styles.pageBtn}
+            disabled={Math.ceil(totalPosts / 10) === currentPage}
+          >
+            &gt;
+          </button>
+        </li>
+      </ul>
     </nav>
   );
 }
