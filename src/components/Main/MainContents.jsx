@@ -34,14 +34,16 @@ const MainContents = ({ sortBy }) => {
         // setData(sortedData);
         // setTotal(sortedData.length);
       } catch (error) {
-        console.error("Error fetching local data:", error);
+        throw new Error(`Error fetching local data: ${error}`);
       }
     };
 
-    sortData().then((data) => {
-      setData(data);
-      setTotal(data.length);
-    });
+    sortData()
+      .then((data) => {
+        setData(data);
+        setTotal(data.length);
+      })
+      .catch(console.log);
   }, [sortBy, page]);
 
   const handleClick = (itemId) => {
