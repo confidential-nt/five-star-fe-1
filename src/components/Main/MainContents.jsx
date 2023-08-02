@@ -24,7 +24,7 @@ const MainContents = ({ sortBy }) => {
       try {
         const response = await axios.get(`/posts?page=${page - 1}`);
         let sortedData = [];
-
+        console.log(response);
         if (sortBy === "id,DESC") {
           sortedData = response.data.sort((a, b) => b.id - a.id);
         } else if (sortBy === "id,ASC") {
