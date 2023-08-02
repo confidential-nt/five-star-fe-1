@@ -22,7 +22,9 @@ const MainContents = ({ sortBy }) => {
   useEffect(() => {
     const sortData = async () => {
       try {
-        const response = await axios.get(`/posts?page=${page - 1}`);
+        const response = await axios.get(
+          `http://3.38.117.203/posts?page=${page - 1}`
+        );
         let sortedData = [];
         console.log(response);
         if (sortBy === "id,DESC") {
