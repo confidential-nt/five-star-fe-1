@@ -1,0 +1,15 @@
+.category {
+  margin-top: 1.6rem;
+  padding: 1rem 1.5rem 0 1rem;
+}
+
+.category h3 {
+  border-bottom: 1px solid var(--blog-skyblue);
+  padding-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.category li {
+  margin-bottom: 0.5rem;
+}

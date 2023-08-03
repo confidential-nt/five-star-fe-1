@@ -6,6 +6,7 @@ import LoginModal from "./components/Modal/LoginModal/LoginModal";
 import { BtnId } from "./constant/btn-id";
 import SignUpModal from "./components/Modal/SignUpModal/SignUpModal";
 import { UserProvider } from "./context/UserContext";
+import Category from "./components/Category/Category";
 
 function App() {
   const [display, setDisplay] = useState();
@@ -26,7 +27,10 @@ function App() {
         <Header onClick={onClick} />
         {display === BtnId.LOG_IN && <LoginModal onClick={onClick} />}
         {display === BtnId.SIGN_UP && <SignUpModal onClick={onClick} />}
-        <Outlet />
+        <div className="container">
+          <Category />
+          <Outlet />
+        </div>
       </UserProvider>
     </>
   );
