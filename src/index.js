@@ -9,6 +9,7 @@ import PostCreate from "./pages/PostCreate";
 import NotFound from "./pages/NotFound";
 import ResignPage from "./pages/ResignPage";
 import PostEdit from "./pages/PostEdit";
+import UserPosts from "./pages/UserPosts";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/resign",
         element: <ResignPage />,
+      },
+      {
+        path: "/posts/users",
+        element: <UserPosts />,
       },
     ],
   },

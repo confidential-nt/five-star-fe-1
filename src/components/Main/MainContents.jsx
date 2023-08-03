@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from "./MainContentsStyle.module.css";
 import Pagination from "../pagination/Pagination";
 
-const MainContents = ({ sortBy }) => {
+const MainContents = ({ sortBy, posts }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [data, setData] = useState({});
@@ -22,9 +22,7 @@ const MainContents = ({ sortBy }) => {
   useEffect(() => {
     const sortData = async () => {
       try {
-        const response = await axios.get(
-          `http://3.38.117.203/posts?page=${page - 1}`
-        );
+        const response = await axios.get(`/posts?page=${page - 1}`);
         let sortedData = [];
         console.log(response);
         if (sortBy === "id,DESC") {
@@ -33,20 +31,27 @@ const MainContents = ({ sortBy }) => {
           sortedData = response.data.sort((a, b) => a.id - b.id);
         }
         return sortedData;
-        // setData(sortedData);
-        // setTotal(sortedData.length);
       } catch (error) {
         throw new Error(`Error fetching local data: ${error}`);
       }
     };
 
-    sortData()
-      .then((data) => {
-        setData(data);
-        setTotal(data.length);
-      })
-      .catch(console.log);
-  }, [sortBy, page]);
+    if (!posts) {
+      sortData()
+        .then((data) => {
+          setData(data);
+          setTotal(data.length);
+        })
+        .catch(console.log);
+    } else {
+      if (sortBy === "id,DESC") {
+        setData(posts.sort((a, b) => b.id - a.id));
+      } else if (sortBy === "id,ASC") {
+        setData(posts.sort((a, b) => a.id - b.id));
+      }
+      setTotal(posts.length);
+    }
+  }, [sortBy, page, posts]);
 
   const handleClick = (itemId) => {
     navigate(`/posts/${itemId}`);
@@ -94,12 +99,14 @@ const MainContents = ({ sortBy }) => {
           )}
         </div>
       </div>
-      <Pagination
-        onNumberClick={onNumberClick}
-        onPrevClick={onPrevClick}
-        onNextClick={onNextClick}
-        currentPage={page}
-      />
+      {posts ? null : (
+        <Pagination
+          onNumberClick={onNumberClick}
+          onPrevClick={onPrevClick}
+          onNextClick={onNextClick}
+          currentPage={page}
+        />
+      )}
     </div>
   );
 };
