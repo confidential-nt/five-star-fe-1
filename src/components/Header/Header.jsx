@@ -4,7 +4,6 @@ import { BtnId } from "../../constant/btn-id";
 import { useUserContext } from "../../context/UserContext";
 import axios from "axios";
 import styles from "./Header.module.css";
-import { PiNotePencilBold } from "react-icons/pi";
 
 export default function Header({ onClick }) {
   const handleClick = (e) => {
