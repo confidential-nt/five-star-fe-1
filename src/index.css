@@ -17,7 +17,7 @@
 body {
   font-family: "Noto Sans KR", sans-serif;
   font-family: "Victor Mono", monospace;
-  background-color: var(--blog-ivory);
+  background-color: #fff;
 }
 
 li {

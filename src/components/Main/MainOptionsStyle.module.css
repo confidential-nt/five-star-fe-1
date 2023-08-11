@@ -14,7 +14,7 @@
 .oldestBtn::after {
   content: "";
   position: absolute;
-  border-bottom: 1px solid var(--blog-skyblue);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.27);
   width: 100%;
   height: 0.8rem;
   left: 0;
@@ -25,7 +25,7 @@
 
 .latestBtn:hover,
 .oldestBtn:hover {
-  color: var(--blog-skyblue);
+  color: rgba(128, 128, 128, 0.27);
 }
 
 .latestBtn.clickedLatest::after {

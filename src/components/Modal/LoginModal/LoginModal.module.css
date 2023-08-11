@@ -5,7 +5,7 @@
 }
 
 .form input {
-  border: none;
+  border: 1px solid rgba(128, 128, 128, 0.27);
   margin-bottom: 1rem;
   padding: 1rem;
   font-size: 1.2rem;
@@ -15,8 +15,8 @@
 }
 
 .form button {
-  background-color: var(--blog-more-light-skyblue);
-  color: #747474;
+  background-color: #0095f6;
+  color: #fff;
   font-size: 1.2rem;
   padding: 1rem;
   margin-bottom: 1rem;

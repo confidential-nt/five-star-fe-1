@@ -4,7 +4,7 @@
 }
 
 .category h3 {
-  border-bottom: 1px solid var(--blog-skyblue);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.27);
   padding-bottom: 0.7rem;
   margin-bottom: 1rem;
   font-weight: 400;

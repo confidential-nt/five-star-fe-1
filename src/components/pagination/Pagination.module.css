@@ -9,7 +9,7 @@
 }
 
 .btns li:hover {
-  color: var(--blog-skyblue);
+  color: #0095f6;
 }
 
 .pageBtn {
@@ -21,5 +21,5 @@
 }
 
 .currentBtn {
-  color: var(--blog-skyblue);
+  color: #0095f6;
 }
