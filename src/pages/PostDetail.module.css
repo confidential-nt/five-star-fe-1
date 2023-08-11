@@ -5,7 +5,7 @@
 }
 
 .content h1 {
-  background-color: var(--blog-skyblue);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.27);
   padding: 0.5rem 1rem;
 }
 
@@ -30,7 +30,7 @@
 
 .content p {
   min-height: 60vh;
-  border: 1px solid var(--blog-skyblue);
+  border: 1px solid rgba(128, 128, 128, 0.27);
   padding: 1rem;
   white-space: pre-line;
 }
